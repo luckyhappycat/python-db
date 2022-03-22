@@ -14,7 +14,7 @@ services:
       - /data/docker/data/redis/data:/data
       - /data/docker/data/redis/redis.conf:/usr/local/etc/redis/redis.conf
       - /data/docker/data/redis/logs:/logs
-    command: /bin/bash -c "redis-server /usr/local/etc/redis/redis.conf"
+    # command: /bin/bash -c "redis-server /usr/local/etc/redis/redis.conf"
 networks:
   redisnetwork:
-  external: true
+  # external: true
