@@ -30,40 +30,40 @@ collection.update_one()
 
 
 
-# class Env:
-#     def __init__(self, ip : str="172.17.50.89", port: int=27017) -> None:
-#         self.ip = ip
-#         self.port = port
-#         self.client = pymongo.MongoClient("mongodb://{}:{}/".format(ip, port))
-#         self.db = client['pyframe-test']
-#         self.col = db["environ"]
-#         self.pipelineid = "pipelineid"
-#         self.pipeline_number = "1"
-#         # self.pipelineid = os.environ["pipelineid"]
-#         # self.pipeline_number = os.environ["pipeline_number"]
+class Env:
+    def __init__(self, ip : str="172.17.50.89", port: int=27017) -> None:
+        self.ip = ip
+        self.port = port
+        self.client = pymongo.MongoClient("mongodb://{}:{}/".format(ip, port))
+        self.db = client['pyframe-test']
+        self.col = db["environ"]
+        self.pipelineid = "pipelineid"
+        self.pipeline_number = "1"
+        # self.pipelineid = os.environ["pipelineid"]
+        # self.pipeline_number = os.environ["pipeline_number"]
 
-#     def exist(self):
-#         ret = self.col.find_one({"_id": "{}_{}".format(self.pipelineid, self.pipeline_number)})
-#         if ret is None:
-#             return False
-#         else:
-#             return True
+    def exist(self):
+        ret = self.col.find_one({"_id": "{}_{}".format(self.pipelineid, self.pipeline_number)})
+        if ret is None:
+            return False
+        else:
+            return True
 
-#     def set(self, environment: dict):
-#         self.col.insert_one(environment)
+    def set(self, environment: dict):
+        self.col.insert_one(environment)
 
-#     def save(self):
-#         pass
+    def save(self):
+        pass
 
-#     def get(self, key: str):
-#         ret = self.col.find_one({"_id": "{}_{}".format(self.pipelineid, self.pipeline_number)})
-#         if ret is not None:
-#             return ret.get(key)
-#         else:
-#             environment = os.environ
-#             return environment.get(key)
+    def get(self, key: str):
+        ret = self.col.find_one({"_id": "{}_{}".format(self.pipelineid, self.pipeline_number)})
+        if ret is not None:
+            return ret.get(key)
+        else:
+            environment = os.environ
+            return environment.get(key)
 
 
-#     def load(self):
-#         ret = self.col.find_one({"_id": "{}_{}".format(self.pipelineid, self.pipeline_number)})
-#         return ret
+    def load(self):
+        ret = self.col.find_one({"_id": "{}_{}".format(self.pipelineid, self.pipeline_number)})
+        return ret
