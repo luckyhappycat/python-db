@@ -1,0 +1,8 @@
+version: '2'
+services:
+  kafka-manager:
+    image: sheepkiller/kafka-manager
+    environment:
+        ZK_HOSTS: 172.17.50.55:2182,172.17.50.56:2181,172.17.50.57:2181
+    ports:
+      - "9000:9000"                               ## 暴露端口
