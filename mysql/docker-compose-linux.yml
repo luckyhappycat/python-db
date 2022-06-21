@@ -17,6 +17,6 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - /data/docker/data/mysql/data:/var/lib/mysql/
-      - /data/docker/data/mysql/config/:/etc/mysql/
-      - /data/docker/data/mysql/log/:/var/log/mysql/
+      - /data/mysql/data:/var/lib/mysql/
+      - /data/mysql/config/:/etc/mysql/
+      - /data/mysql/log/:/var/log/mysql/

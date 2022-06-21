@@ -1,11 +1,16 @@
 version: '3'
 services:
   jenkins:
-    image: 'jenkins/jenkins:2.349'
+    image: 'jenkins/jenkins:2.354-centos7-jdk8'
     container_name: jenkins
-    restart: always
     ports:
-      - '8080:8080'
+      - '80:8080'
       - '50000:50000'
     volumes:
       - '/data/jenkins_home:/var/jenkins_home'
+    environment:
+      TZ: "Asia/Shanghai"
+      LANG: "en_US.utf8"
+      JAVA_OPTS: "-Dsun.jnu.encoding=UTF-8 -Dfile.encoding=UTF-8"
+    network_mode: bridge
+    restart: always

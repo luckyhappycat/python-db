@@ -1,6 +1,4 @@
-# redis yml文件内容
 version: '3'
-
 services:
   redis:
     image: redis:6.0
@@ -11,9 +9,10 @@ services:
     networks:
       - redisnetwork
     volumes:
-      - /data/docker/data/redis/data:/data
-      - /data/docker/data/redis/redis.conf:/usr/local/etc/redis/redis.conf
-      - /data/docker/data/redis/logs:/logs
+      - /data/redis/data:/data
+      - /data/redis/redis.conf:/usr/local/etc/redis/redis.conf
+      - /data/redis/logs:/logs
     command: /bin/bash -c "redis-server /usr/local/etc/redis/redis.conf"
 networks:
-  redisnetwork: #    external: true
+  redisnetwork:
+    external: true

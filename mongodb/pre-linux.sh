@@ -1,3 +1,3 @@
-mkdir -p /data/docker/mongodb/data/db
-mkdir -p /data/docker/mongodb/data/log
-mkdir -p /data/docker/mongodb/data/config
+mkdir -p /data/mongodb/db
+mkdir -p /data/mongodb/log
+mkdir -p /data/mongodb/config
